@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(UrlConstants.AGENTE)
 public class AgenteController {
 
-    @GetMapping(UrlConstants.AGENTE)
+    @GetMapping("")
     public String goAgente(){
         return "agente";
     }

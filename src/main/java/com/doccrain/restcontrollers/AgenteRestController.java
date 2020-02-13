@@ -32,6 +32,7 @@ public class AgenteRestController {
 
     @PutMapping(UrlConstants.UPDATE)
     public void update(@RequestBody Agente agente, @PathVariable int id){
+
         service.update(agente, id);
     }
 

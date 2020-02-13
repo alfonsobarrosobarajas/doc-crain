@@ -3,12 +3,7 @@ var app = angular.module('agenteModule', [])
     .controller('agenteController', function($http, $scope, $window){
 
         // Variable
-        $scope.agente = {
-            id : null,
-            numempleado : null,
-            nombre : null,
-            telefono : null
-        };
+        $scope.agente = {};
 
         // Arreglo
         $scope.agentes = [];
@@ -26,23 +21,32 @@ var app = angular.module('agenteModule', [])
         $scope.add = (agente) => {
 
             $http.post('/agente/add', agente).then((response) => {
-
+                $scope.agente = {};
                 list();
             })
 
         };
 
+        $scope.selectEdit = (agente) => {
+
+            $scope.agente = agente;
+
+        };
+
+        $scope.edit = (agente) => {
+
+            $http.put('/agente/update/' + agente.id, agente).then((response) => {
+                list();
+            });
+
+        };
+
+
         $scope.delete = (agente) => {
 
-            const conf = $window.confirm('Seguro de eliminar el registro ' + agente.nombre);
-
-            if(conf){
-
-                $http.delete('/agente/delete/' + agente.id).then((response) => {
-                    $window.alert('Registro eliminado');
-                });
-
-            }
+            $http.delete('/agente/delete/' + agente.id).then((response) => {
+                list();
+            });
 
         };
 

@@ -27,7 +27,6 @@ var app = angular.module('agenteModule', [])
 
             $http.post('/agente/add', agente).then((response) => {
 
-                $window.alert('Agente agregado')
                 list();
             })
 
@@ -47,6 +46,6 @@ var app = angular.module('agenteModule', [])
 
         };
 
-
+        list();
 
     });

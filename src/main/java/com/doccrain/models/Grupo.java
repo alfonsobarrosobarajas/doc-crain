@@ -22,7 +22,7 @@ public class Grupo {
 
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "grupos")
-    private List<Agente> agentes = new ArrayList<>();
+    private List<Agente> agentes = new ArrayList<Agente>();
 
 
     public Grupo() {

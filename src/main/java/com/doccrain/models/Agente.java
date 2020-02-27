@@ -1,6 +1,7 @@
 package com.doccrain.models;
 
 import javax.persistence.*;
+import javax.security.auth.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Agente {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="agente_grupo", joinColumns = @JoinColumn(name="agente_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
-    private List<Grupo> grupos = new ArrayList<>();
+    private List<Grupo> grupos = new ArrayList<Grupo>();
 
 
     public Agente() {

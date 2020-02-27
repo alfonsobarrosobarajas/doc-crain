@@ -34,6 +34,11 @@ public class AgenteRestController {
         return service.getAgente_X_Grupo();
     }
 
+    @GetMapping(Router.GETAGENTE_X_GRUPO_BY_ID)
+    public List<Object> getAgente_X_GroupById(@PathVariable int id){
+        return service.getAgente_X_Grupo_by_Id(id);
+    }
+
     @GetMapping(Router.GET_BY_CODE)
     public Agente getAgenteByNumEmpleado(@PathVariable String code){
         return service.getAgenteByNumEmpleado(code);

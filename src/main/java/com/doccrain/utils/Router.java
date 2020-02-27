@@ -13,6 +13,7 @@ public class Router {
     public static final String DELETE = "/delete/{id}";
     public static final String GETAGENTE_X_GRUPO = "/axg";
     public static final String GETAGENTE_X_GRUPO_BY_ID = "/axgid/{id}";
+    public static final String GETAGENTE_X_PERMISO = "/axp";
     public static final String GET_BY_CODE = "/code/{code}";
 
 }

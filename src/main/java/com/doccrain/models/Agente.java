@@ -3,7 +3,9 @@ package com.doccrain.models;
 import javax.persistence.*;
 import javax.security.auth.Subject;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="agente")
@@ -20,9 +22,13 @@ public class Agente {
     @Column(name="telefono", nullable = false, columnDefinition = "char(20)")
     private String telefono;
 
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="agente_grupo", joinColumns = @JoinColumn(name="agente_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
     private List<Grupo> grupos = new ArrayList<Grupo>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Permiso> permisos = new HashSet<Permiso>();
 
 
     public Agente() {
@@ -58,5 +64,22 @@ public class Agente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public Set<Permiso> getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(Set<Permiso> permisos) {
+        this.permisos = permisos;
     }
 }

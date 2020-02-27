@@ -44,6 +44,11 @@ public class AgenteRestController {
         return service.getAgenteByNumEmpleado(code);
     }
 
+    @GetMapping(Router.GETAGENTE_X_PERMISO)
+    public List<Object> getAgente_X_Permiso(){
+        return service.getAgente_X_Permiso();
+    }
+
 
     @PostMapping(Router.ADD)
     public void add(@RequestBody Agente agente){

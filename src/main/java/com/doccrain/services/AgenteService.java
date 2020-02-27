@@ -53,4 +53,9 @@ public class AgenteService extends CRUD<Agente, AgenteRepository> {
     public Agente getAgenteByNumEmpleado(String numEmpleado){
         return repository.getAgenteByNumEmpleado(numEmpleado);
     }
+
+    public List<Object> getAgente_X_Permiso(){
+        return repository.getAgente_X_Permiso();
+    }
+
 }

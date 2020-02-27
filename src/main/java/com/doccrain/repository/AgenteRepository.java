@@ -21,4 +21,8 @@ public interface AgenteRepository extends JpaRepository<Agente, Integer> {
     @Query("FROM Agente agente WHERE agente.numempleado = :numEmpleado")
     Agente getAgenteByNumEmpleado(String numEmpleado);
 
+    @Query("FROM Agente agente JOIN agente.permisos")
+    List<Object> getAgente_X_Permiso();
+
+
 }

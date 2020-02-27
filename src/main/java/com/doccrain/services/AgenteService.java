@@ -5,6 +5,7 @@ import com.doccrain.repository.AgenteRepository;
 import com.doccrain.repository.CRUD;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -38,5 +39,14 @@ public class AgenteService extends CRUD<Agente, AgenteRepository> {
     @Override
     public void delete(int id) {
         repository.deleteById(id);
+    }
+
+
+    public Collection<Object> getAgente_X_Grupo(){
+        return repository.getAgente_X_Grupo();
+    }
+
+    public Agente getAgenteByNumEmpleado(String numEmpleado){
+        return repository.getAgenteByNumEmpleado(numEmpleado);
     }
 }

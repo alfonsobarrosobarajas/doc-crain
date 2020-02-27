@@ -2,6 +2,8 @@ package com.doccrain.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="agente")
@@ -17,6 +19,11 @@ public class Agente {
     private String nombre;
     @Column(name="telefono", nullable = false, columnDefinition = "char(20)")
     private String telefono;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="agente_grupo", joinColumns = @JoinColumn(name="agente_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+    private List<Grupo> grupos = new ArrayList<>();
+
 
     public Agente() {
     }
